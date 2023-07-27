@@ -80,11 +80,11 @@ end
 modem.open(settings.com_port)
 
 -- Checks the item counts
-function getItemCount(id)
+function getItemCount(id, nbt)
     local co = 0
     for k,v in ipairs(storages) do
         for kk,vv in pairs(v.wrap.list()) do
-            if vv.name == id then
+            if (vv.name == id) and ((nbt == nil) or (vv.nbt == nbt)) then
                 co = co + vv.count
             end
         end

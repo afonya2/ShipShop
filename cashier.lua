@@ -88,15 +88,15 @@ local function regger()
     end
 end
 
-function dropItems(id, amount)
+function dropItems(id, amount, nbt)
     local remaining = amount
-    local function itemDrop(idd, amountt)
+    local function itemDrop(idd, amountt, nbtt)
         if amountt > 64 then
             amountt = 64
         end
         for k,v in ipairs(storages) do
             for kk,vv in pairs(v.wrap.list()) do
-                if vv.name == id then
+                if (vv.name == idd) and ((nbtt == nil) or (vv.nbt == nbtt)) then
                     local co = v.wrap.pushItems(settings.self_id, kk, amountt, 1)
                     turtle.drop(amountt)
                     return co
@@ -105,7 +105,7 @@ function dropItems(id, amount)
         end
     end
     while remaining > 0 do
-        local ca = itemDrop(id, remaining)
+        local ca = itemDrop(id, remaining, nbtt)
         remaining = remaining - ca
     end
 end
