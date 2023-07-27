@@ -88,5 +88,25 @@
         ["discount"] = 0,
         ["id"] = "computercraft:printer",
         ["dp_forcePrice"] = false
+    },
+    {
+        ["uuid"] = "invpot",
+        ["name"] = "Invis. Potion",
+        ["price"] = 100,
+        ["dp_normalStock"] = 10,
+        ["discount"] = 0,
+        ["id"] = "minecraft:potion",
+        ["nbt"] = "",
+        ["dp_forcePrice"] = false
+    },
+    {
+        ["uuid"] = "regpot",
+        ["name"] = "Regen. Potion",
+        ["price"] = 100,
+        ["dp_normalStock"] = 10,
+        ["discount"] = 0,
+        ["id"] = "minecraft:potion",
+        ["nbt"] = "",
+        ["dp_forcePrice"] = false
     }
 }
