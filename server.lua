@@ -101,7 +101,7 @@ function getItemCountNoCart(uuid)
             end
         end
     end
-    return getItemCount(gitem.id) - inCartAmount
+    return getItemCount(gitem.id, gitem.nbt) - inCartAmount
 end
 
 -- Receives from the modem
@@ -416,7 +416,7 @@ local function onCMessage(user, command, args)
                 if v > 0 then
                     bs = true
                 end
-                if v > getItemCount(gitem.id) then
+                if v > getItemCount(gitem.id, gitem.nbt) then
                     chatbox.tell(user,"&cNot enough items: &ax"..v.." &f"..gitem.name,settings.shop_name,nil,"format")
                     return
                 end

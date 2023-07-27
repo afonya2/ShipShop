@@ -225,7 +225,7 @@ local function cartDropper()
                 gitem = getItemDataById(k)
                 os.sleep(0)
             end
-            dropItems(gitem.id, v)
+            dropItems(gitem.id, v, gitem.nbt)
         end
         giveReceipt(message.data)
         os.sleep(0)
