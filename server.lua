@@ -604,7 +604,7 @@ local function borderes()
             if carts[v.name:lower()] ~= nil then
                 if (v.x < settings.border.x1) or (v.x > settings.border.x2) or (v.z < settings.border.z1) or (v.z > settings.border.z2) then 
                     carts[v.name:lower()] = nil
-                    chatbox.tell(user,"&cYou left the market, your cart have been removed!",settings.shop_name,nil,"format")
+                    chatbox.tell(v.name,"&cYou left the market, your cart have been removed!",settings.shop_name,nil,"format")
                 end
             end
         end
