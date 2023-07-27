@@ -1,0 +1,92 @@
+{
+    {
+        ["uuid"] = "acomp",
+        ["name"] = "Adv. Computer",
+        ["price"] = 0.15,
+        ["dp_normalStock"] = 10,
+        ["discount"] = 0,
+        ["id"] = "computercraft:computer_advanced",
+        ["dp_forcePrice"] = false
+    },
+    {
+        ["uuid"] = "diskette",
+        ["name"] = "Disk",
+        ["price"] = 0.1,
+        ["dp_normalStock"] = 10,
+        ["discount"] = 0,
+        ["id"] = "computercraft:disk",
+        ["dp_forcePrice"] = false
+    },
+    {
+        ["uuid"] = "aturtle",
+        ["name"] = "Advanced turtle",
+        ["price"] = 0.5,
+        ["dp_normalStock"] = 10,
+        ["discount"] = 0,
+        ["id"] = "computercraft:turtle_advanced",
+        ["dp_forcePrice"] = false
+    },
+    {
+        ["uuid"] = "speaker",
+        ["name"] = "Speaker",
+        ["price"] = 0.1,
+        ["dp_normalStock"] = 10,
+        ["discount"] = 0,
+        ["id"] = "computercraft:speaker",
+        ["dp_forcePrice"] = false
+    },
+    {
+        ["uuid"] = "ddrive",
+        ["name"] = "Disk Drive",
+        ["price"] = 0.05,
+        ["dp_normalStock"] = 10,
+        ["discount"] = 0,
+        ["id"] = "computercraft:disk_drive",
+        ["dp_forcePrice"] = false
+    },
+    {
+        ["uuid"] = "emodem",
+        ["name"] = "Ender modem",
+        ["price"] = 0.2,
+        ["dp_normalStock"] = 10,
+        ["discount"] = 0,
+        ["id"] = "computercraft:wireless_modem_advanced",
+        ["dp_forcePrice"] = false
+    },
+    {
+        ["uuid"] = "wmodem",
+        ["name"] = "Wired modem",
+        ["price"] = 0.075,
+        ["dp_normalStock"] = 10,
+        ["discount"] = 5,
+        ["id"] = "computercraft:wired_modem",
+        ["dp_forcePrice"] = false
+    },
+    {
+        ["uuid"] = "cable",
+        ["name"] = "Cable",
+        ["price"] = 0.01,
+        ["dp_normalStock"] = 10,
+        ["discount"] = 0,
+        ["id"] = "computercraft:cable",
+        ["dp_forcePrice"] = false
+    },
+    {
+        ["uuid"] = "apocket",
+        ["name"] = "Adv. P. Com.",
+        ["price"] = 0.75,
+        ["dp_normalStock"] = 10,
+        ["discount"] = 0,
+        ["id"] = "computercraft:pocket_computer_advanced",
+        ["dp_forcePrice"] = false
+    },
+    {
+        ["uuid"] = "printer",
+        ["name"] = "Printer",
+        ["price"] = 0.2,
+        ["dp_normalStock"] = 10,
+        ["discount"] = 0,
+        ["id"] = "computercraft:printer",
+        ["dp_forcePrice"] = false
+    }
+}
