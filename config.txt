@@ -10,5 +10,11 @@
     },
     ["com_port"] = 1415,
     ["dp_enabled"] = false,
-    ["webhook_url"] = "https://discord.com/api/webhooks/1132694135816597698/A4m4ysOjmgfwdDeOhUssgr-bHLqTmmTNE1BQSwZjqut9qPkLzCpkyEFOFztou7j8HN3l"
+    ["webhook_url"] = "https://discord.com/api/webhooks/1132694135816597698/A4m4ysOjmgfwdDeOhUssgr-bHLqTmmTNE1BQSwZjqut9qPkLzCpkyEFOFztou7j8HN3l",
+    ["border"] = {
+        x1 = 979,
+        z1 = 268,
+        x2 = 1034,
+        z2 = 322
+    }
 }

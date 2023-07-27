@@ -23,6 +23,12 @@ if not fs.exists("userkst.txt") then
     saveCache("userkst.txt", {})
 end
 
+if not fs.exists("reviews.txt") then
+    local fa = fs.open("reviews.txt", "w")
+    fa.write()
+    fa.close()
+end
+
 for k,v in ipairs(settings.items) do
     settings.items[k].getPrice = function()
         local price = v.price
@@ -262,10 +268,27 @@ local function onCMessage(user, command, args)
 `\]]..settings.shop_command[1]..[[ help`: The help command
 `\]]..settings.shop_command[1]..[[ info`: Shows some info about the shop
 `\]]..settings.shop_command[1]..[[ balance`: The balance kept from the previous purchase
+`\]]..settings.shop_command[1]..[[ review <message>`: The balance kept from the previous purchase
 `\]]..settings.shop_command[1]..[[ cart <set/list/remove/clear> [<uuid>] [<count>]`: List the cart, remove from the cart or clear the cart
 `\]]..settings.shop_command[1]..[[ checkout <cancel/cashier_id>`: Pay for the items in your cart
 ]]
         chatbox.tell(user,help,settings.shop_name,nil,"markdown")
+    elseif args[1] == "review" then
+        if args[2] == nil then
+            chatbox.tell(user,"&cUsage: \\"..settings.shop_command[1].." review <message>",settings.shop_name,nil,"format")
+            return
+        end
+        local txt = ""
+        for i=2,#args do
+            txt = txt .. args[i] .. " " 
+        end
+        local fa = fs.open("reviews.txt", "r")
+        local ffa = fa.readAll()
+        fa.close()
+        local fb = fs.open("reviews.txt", "w")
+        fb.write(ffa..os.date().." "..user..": "..txt.."\n")
+        fb.close()
+        chatbox.tell(user,"&aReview saved!",settings.shop_name,nil,"format")
     elseif args[1] == "info" then
         chatbox.tell(user,"&a"..settings.shop_name.."\n&7Description: "..settings.shop_desc.."\n&7Owner(s): "..settings.shop_owner.."\n&7Software: ShipShop\n&aMake sure to /sethome "..settings.shop_name,settings.shop_name,nil,"format")
     elseif args[1] == "balance" then
@@ -572,6 +595,28 @@ local function transos()
     end
 end
 
+local function borderes()
+    while true do
+        local handle = http.get("https://dynmap.sc3.io/up/world/SwitchCraft/")
+        local sensed = textutils.unserialiseJSON(handle.readAll())
+        handle.close()
+        for k,v in ipairs(sensed.players) do
+            if carts[v.name:lower()] ~= nil then
+                if (v.x < settings.border.x1) or (v.x > settings.border.x2) or (v.z < settings.border.z1) or (v.z > settings.border.z2) then 
+                    carts[v.name:lower()] = nil
+                    chatbox.tell(user,"&cYou left the market, your cart have been removed!",settings.shop_name,nil,"format")
+                end
+            end
+        end
+        for k,v in pairs(carts) do
+            if not isPlayerOnline(k) then
+                carts[v.name:lower()] = nil
+            end
+        end
+        os.sleep(60)
+    end
+end
+
 parallel.waitForAny(function()
     local ok,err = pcall(modemes)
     if not ok then
@@ -584,6 +629,11 @@ end,function()
     end
 end,function()
     local ok,err = pcall(transos)
+    if not ok then
+        print(err)
+    end
+end,function()
+    local ok,err = pcall(borderes)
     if not ok then
         print(err)
     end
