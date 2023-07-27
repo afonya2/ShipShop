@@ -252,7 +252,9 @@ end
 local function clickert()
     while true do
         local event, side, x, y = os.pullEvent("monitor_touch")
-        addItemToCart(settings.monitors[side].uuid, getUserAtMon(side).name)
+        if settings.monitors[side] ~= nil then
+            addItemToCart(settings.monitors[side].uuid, getUserAtMon(side).name)
+        end
     end
 end
 
