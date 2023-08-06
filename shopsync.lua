@@ -127,7 +127,7 @@ function sendShopsync()
                 displayName = v.name
             },
             dynamicPricing = (not v.dp_forcePrice),
-            stock = v.stock,
+            stock = v.count,
             madeOnDemand = false,
             requiresInteraction = true
         })
